@@ -25,6 +25,7 @@ type RequestStatusChange struct {
 	gorm.Model
 	RequestID     uint `json:"request_id" gorm:"not null;index"`
 	CurrentStatus int  `json:"current_status" gorm:"not null"`
+	PrevStatus    int  `json:"prev_status" gorm:"not null"`
 }
 
 type Events struct {

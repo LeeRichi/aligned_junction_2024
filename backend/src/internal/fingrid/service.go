@@ -15,6 +15,6 @@ func (fs *FingridService) CreateRelease(releaseID uint, startDate, endDate strin
 	return fs.repo.createRelease(releaseID, startDate, endDate)
 }
 
-func (fs *FingridService) UpdateRequest(requestId string, status int, notes string) bool {
-	return fs.repo.updateRequest(requestId, status, notes)
+func (fs *FingridService) UpdateRequest(requestId string, status int, releaseId int) bool {
+	return fs.repo.updateRequest(requestId, status, releaseId)
 }

@@ -37,10 +37,10 @@ func (fr *FingridRouter) postRelease(c *gin.Context) {
 }
 
 func (fr *FingridRouter) updateRequestById(c *gin.Context) {
-	requestId := c.Param("id")
+	requestId := c.Param("requestId")
 	var updateData struct {
-		Status int    `json:"status"`
-		Notes  string `json:"notes"`
+		ReleaseID int `json:"release_id"`
+		Status    int `json:"status"`
 	}
 
 	if err := c.BindJSON(&updateData); err != nil {
@@ -48,7 +48,7 @@ func (fr *FingridRouter) updateRequestById(c *gin.Context) {
 		return
 	}
 
-	success := fr.fingridService.UpdateRequest(requestId, updateData.Status, updateData.Notes)
+	success := fr.fingridService.UpdateRequest(requestId, updateData.Status, updateData.ReleaseID)
 	if success {
 		c.JSON(http.StatusOK, gin.H{"message": "Request updated"})
 	} else {

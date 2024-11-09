@@ -46,8 +46,8 @@ func (cr *CompanyRepo) getRequests() ApiResponse {
 }
 
 func (cr *CompanyRepo) getRequestById(requestId string) ApiResponse {
-	var request Tracker
-	err := cr.db.Model(&Tracker{}).Where("id = ?", requestId).First(&request).Error
+	var request Requests
+	err := cr.db.Model(&Requests{}).Where("id = ?", requestId).First(&request).Error
 	if err != nil {
 		return ApiResponse{
 			Status:  "error",

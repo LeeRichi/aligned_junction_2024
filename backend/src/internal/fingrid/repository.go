@@ -42,15 +42,27 @@ func (fr *FingridRepo) createRelease(releaseID uint, startDate, endDate string) 
 	return true
 }
 
-func (fr *FingridRepo) updateRequest(requestId string, status int, notes string) bool {
+func (fr *FingridRepo) updateRequest(requestId string, status int, releaseId int) bool {
 	var request company.Requests
-	if err := fr.db.Where("request_id = ?", requestId).First(&request).Error; err != nil {
+	if err := fr.db.Model(&company.Requests{}).Where("id = ?", requestId).First(&request).Error; err != nil {
 		log.Println("Error finding request:", err)
 		return false
 	}
 
+	if request.Status != status || request.ReleaseID != uint(releaseId) {
+		var requestChange company.RequestStatusChange = company.RequestStatusChange{
+			RequestID:     request.ID,
+			CurrentStatus: status,
+			PrevStatus:    request.Status,
+		}
+		if err := fr.db.Create(&requestChange).Error; err != nil {
+			log.Println("Error creating release:", err)
+			return false
+		}
+	}
+
 	request.Status = status
-	request.RequestBody = notes
+	request.ReleaseID = uint(releaseId)
 	if err := fr.db.Save(&request).Error; err != nil {
 		log.Println("Error updating request:", err)
 		return false
