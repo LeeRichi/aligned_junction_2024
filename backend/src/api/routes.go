@@ -35,7 +35,7 @@ func (r *AppRouter) Run(appUrl string, db *gorm.DB) error {
 		{
 			fingrid.GET("/tracker", compRouter.getTracker)                    // done
 			fingrid.POST("/release", fingRouter.postRelease)                  // done
-			fingrid.POST("/request/:requestId", fingRouter.updateRequestById) // not done
+			fingrid.POST("/request/:requestId", fingRouter.updateRequestById) // done
 		}
 	}
 
