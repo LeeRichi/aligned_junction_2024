@@ -8,9 +8,9 @@ import (
 
 type Tracker struct {
 	gorm.Model
-	ReleaseID      uint      `json:"release_id" gorm:"primaryKey"`
-	StartDate      time.Time `json:"start_date" gorm:"not null"`
-	EndDate        time.Time `json:"end_date"`
+	ReleaseID uint      `json:"release_id" gorm:"primaryKey"`
+	StartDate time.Time `json:"start_date" gorm:"not null"`
+	EndDate   time.Time `json:"end_date"`
 }
 
 type Requests struct {

@@ -2,6 +2,12 @@ package company
 
 import "gorm.io/gorm"
 
+type ApiResponse struct {
+	Status  string      `json:"status"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
+}
+
 type CompanyService struct {
 	repo *CompanyRepo
 }
@@ -12,26 +18,21 @@ func NewCompanyService(db *gorm.DB) *CompanyService {
 }
 
 func (cs *CompanyService) GetReleases() []string {
-	// Replace with actual logic to fetch releases from the repository
 	return cs.repo.getReleases()
 }
 
-func (cs *CompanyService) GetRequests() []string {
-	// Replace with actual logic to fetch requests from the repository
+func (cs *CompanyService) GetRequests() ApiResponse {
 	return cs.repo.getRequests()
 }
 
-func (cs *CompanyService) GetRequestById(requestId string) string {
-	// Replace with actual logic to fetch a request by ID from the repository
+func (cs *CompanyService) GetRequestById(requestId string) ApiResponse {
 	return cs.repo.getRequestById(requestId)
 }
 
-func (cs *CompanyService) GetReleaseById(releaseId string) string {
-	// Replace with actual logic to fetch a release by ID from the repository
+func (cs *CompanyService) GetReleaseById(releaseId string) ApiResponse {
 	return cs.repo.getReleaseById(releaseId)
 }
 
-func (cs *CompanyService) PostRequest(data string) bool {
-	// Replace with actual logic to post a new request to the repository
-	return cs.repo.postRequest(data)
+func (cs *CompanyService) PostRequest(status int, company int, data string, releaseId int) bool {
+	return cs.repo.postRequest(status, company, data, releaseId)
 }
