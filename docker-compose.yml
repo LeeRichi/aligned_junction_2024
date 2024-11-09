@@ -11,13 +11,26 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # api:
-  #   build: 
-  #     context: ./backend
-  #     dockerfile: Dockerfile
-  #   container_name: projectx-api
-  #   ports:
-  #     - "8080:8080"
+  api:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aligned-api
+    ports:
+      - "8080:8080"
+    depends_on: 
+      - postgres
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: aligned-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - api
 
 volumes:
   postgres_data:
