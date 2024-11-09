@@ -12,7 +12,7 @@ type Database struct {
 }
 
 func NewDatabase(dsn string) (*Database, error) {
-	db, _ := gorm.Open(postgres.Open("host=localhost user=dbuser password=password dbname=app port=5434"), &gorm.Config{})
+	db, _ := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	_ = db.AutoMigrate(&company.Tracker{}, &company.Requests{}, &company.RequestStatusChange{}, &company.Events{})
 
