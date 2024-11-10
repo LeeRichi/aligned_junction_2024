@@ -23,7 +23,9 @@ const Sidebar = ({isOpen, setIsOpen}) => {
 				className={`fixed top-0 left-0 z-50 w-[23%] h-full bg-white p-10 transition-transform transform border-r-2 pt-20
 					${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-				<h3 className="text-2xl mb-4">Ailigned x FINGRID</h3>
+				<h3 className="text-2xl mb-4">
+					Ailigned x <span className="text-red-500">FINGRID</span>
+				</h3>
 				<div className="flex items-center w-64 max-w-md mx-auto bg-white rounded border-2 overflow-hidden">					<CiSearch className="text-gray-500 ml-2" />
 					<input
 						type="text"

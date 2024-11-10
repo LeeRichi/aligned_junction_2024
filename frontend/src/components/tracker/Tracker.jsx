@@ -135,6 +135,7 @@ const Tracker = ({isOpen, issues}) =>
         const firstIssueRes = await fetch(`${backendUrl}/v1/company/tracker/${firstIssueId}`);
         if (firstIssueRes.ok) {
 					const firstIssueData = await firstIssueRes.json();
+					console.log(firstIssueData)
 					setFirstIssue(firstIssueData.data)
           console.log("Fetched first issue:", firstIssueData);
         } else {
@@ -146,7 +147,7 @@ const Tracker = ({isOpen, issues}) =>
     fetchFirstIssue();
 	}, [backendIssuesIds.length]);
 
-	console.log(JSON.stringify(firstIssue.data))
+	console.log(JSON.stringify(firstIssue))
 
 	return (
 		<div className={`flex mt-96 max-w-[70%] overflow-hidden pl-24 ml-[20%]`}>
@@ -217,8 +218,10 @@ const Tracker = ({isOpen, issues}) =>
 							</li>
 						)}
 					</div>
+					{/* real data */}
+
 					{/* mockdata */}
-          {issues.map((issue, index) => (
+          {issues?.map((issue, index) => (
 						<div key={issue.name} className="relative group">
               <div
                 className="absolute bg-black"
