@@ -1,6 +1,11 @@
 package api
 
 import (
+	"bytes"
+	"encoding/json"
+	"io"
+	"log"
+	"net/http"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -48,6 +53,40 @@ func (r *AppRouter) Run(appUrl string, db *gorm.DB) error {
 			fingrid.GET("/tracker", compRouter.getTracker)                    // done
 			fingrid.POST("/release", fingRouter.postRelease)                  // done
 			fingrid.POST("/request/:requestId", fingRouter.updateRequestById) // done
+		}
+
+		llm := v1.Group("/llm")
+		{
+			llm.POST("/query", func(c *gin.Context) {
+				var query struct {
+					query string
+				}
+
+				if err := c.BindJSON(&query); err != nil {
+					c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
+					return
+				}
+				queryBody, _ := json.Marshal(map[string]string{
+					"query": query.query,
+				})
+
+				responseBody := bytes.NewBuffer(queryBody)
+				resp, err := http.Post("https://llm:8000/query", "application/json", responseBody)
+
+				if err != nil {
+					log.Fatalf("An Error Occured %v", err)
+				}
+				defer resp.Body.Close()
+
+				body, err := io.ReadAll(resp.Body)
+				if err != nil {
+					log.Fatalln(err)
+				}
+				sb := string(body)
+				c.JSON(http.StatusOK, gin.H{
+					"result": sb,
+				})
+			})
 		}
 	}
 
