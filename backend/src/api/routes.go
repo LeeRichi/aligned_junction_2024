@@ -59,7 +59,7 @@ func (r *AppRouter) Run(appUrl string, db *gorm.DB) error {
 		{
 			llm.POST("/query", func(c *gin.Context) {
 				var query struct {
-					Query string `json:"query"`
+					Question string `json:"question"`
 				}
 
 				if err := c.BindJSON(&query); err != nil {
@@ -67,7 +67,7 @@ func (r *AppRouter) Run(appUrl string, db *gorm.DB) error {
 					return
 				}
 				queryBody, _ := json.Marshal(map[string]string{
-					"query": query.Query,
+					"question": query.Question,
 				})
 
 				responseBody := bytes.NewBuffer(queryBody)
