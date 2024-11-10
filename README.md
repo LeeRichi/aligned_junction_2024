@@ -10,7 +10,7 @@
 - Richi Lee
 
 ## Techinal architecture
-![architecture](<assets/Screenshot 2024-11-10 at 00.49.03.png>)
+![architecture](<assets/Screenshot 2024-11-10 at 09.28.25.png>)
 
 ## To run locally
 To run the project locally you need to have Docker installed on your computer.
