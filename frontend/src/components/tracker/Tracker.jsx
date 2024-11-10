@@ -124,30 +124,30 @@ const Tracker = ({isOpen, issues}) =>
     };
 	}, []);
 
-	useEffect(() =>
-	{
-		const fetchFirstIssue = async () =>
-		{
-			if (backendIssuesIds.length > 0)
-			{
-				const firstIssueId = backendIssuesIds[backendIssuesIds.length - 1];
-				console.log(firstIssueId)
-        const firstIssueRes = await fetch(`${backendUrl}/v1/company/tracker/${firstIssueId}`);
-        if (firstIssueRes.ok) {
-					const firstIssueData = await firstIssueRes.json();
-					console.log(firstIssueData)
-					setFirstIssue(firstIssueData.data)
-          console.log("Fetched first issue:", firstIssueData);
-        } else {
-          console.error("Failed to fetch first issue");
-        }
-      }
-    };
+	// useEffect(() =>
+	// {
+	// 	const fetchFirstIssue = async () =>
+	// 	{
+	// 		if (backendIssuesIds.length > 0)
+	// 		{
+	// 			const firstIssueId = backendIssuesIds[backendIssuesIds.length - 1];
+	// 			console.log(firstIssueId)
+  //       const firstIssueRes = await fetch(`${backendUrl}/v1/company/tracker/${firstIssueId}`);
+  //       if (firstIssueRes.ok) {
+	// 				const firstIssueData = await firstIssueRes.json();
+	// 				console.log(firstIssueData)
+	// 				setFirstIssue(firstIssueData.data)
+  //         console.log("Fetched first issue:", firstIssueData);
+  //       } else {
+  //         console.error("Failed to fetch first issue");
+  //       }
+  //     }
+  //   };
 
-    fetchFirstIssue();
-	}, [backendIssuesIds.length]);
+  //   fetchFirstIssue();
+	// }, [backendIssuesIds.length]);
 
-	console.log(JSON.stringify(firstIssue))
+	// console.log(JSON.stringify(firstIssue))
 
 	return (
 		<div className={`flex mt-96 max-w-[70%] overflow-hidden pl-24 ml-[20%]`}>
