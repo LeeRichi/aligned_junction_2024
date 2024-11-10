@@ -13,8 +13,6 @@ export default function Home()
 	const [isOpen, setIsOpen] = useState(true);
 	const [isDetailOpen, setIsDetailOpen] = useState(false)
 
-	console.log(isDetailOpen)
-
 	return (
 		<div>
 			<Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
