@@ -1,0 +1,7 @@
+PyMuPDF
+pinecone
+langchain-ollama
+transformers
+fastapi
+pandas
+uvicorn
