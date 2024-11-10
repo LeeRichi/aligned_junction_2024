@@ -61,33 +61,38 @@ func (r *AppRouter) Run(appUrl string, db *gorm.DB) error {
 				var query struct {
 					Question string `json:"question"`
 				}
-
+			
 				if err := c.BindJSON(&query); err != nil {
 					c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
 					return
 				}
+			
 				queryBody, _ := json.Marshal(map[string]string{
 					"question": query.Question,
 				})
-
+			
 				responseBody := bytes.NewBuffer(queryBody)
 				resp, err := http.Post("http://llm:8000/query", "application/json", responseBody)
-
+			
 				if err != nil {
-					log.Fatalf("An Error Occured %v", err)
+					log.Printf("Error occurred while making HTTP request: %v", err)
+					c.JSON(http.StatusServiceUnavailable, gin.H{"error": "Failed to connect to the LLM service"})
+					return
 				}
 				defer resp.Body.Close()
-
+			
 				body, err := io.ReadAll(resp.Body)
 				if err != nil {
-					log.Fatalln(err)
+					log.Printf("Error occurred while reading response body: %v", err)
+					c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to read response from LLM service"})
+					return
 				}
+			
 				sb := string(body)
 				c.JSON(http.StatusOK, gin.H{
 					"result": sb,
 				})
-			})
-		}
+			})			
 	}
 
 	err := r.router.Run(appUrl)
