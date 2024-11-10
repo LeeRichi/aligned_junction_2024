@@ -259,7 +259,7 @@ const Tracker = ({isOpen, issues}) =>
 								>
 									{issue.start.slice(5)}
 								</div>
-								{/* <div
+								<div
 									className="absolute text-xs"
 									style={{
 										left: `${parseInt(calculateLeftPosition(issue.update)) - parseInt(calculateLeftPosition(issue.start))}px`,
@@ -272,7 +272,7 @@ const Tracker = ({isOpen, issues}) =>
 									}}
 								>
 									{issue.update.slice(5)}
-								</div> */}
+								</div>
 								<div
 									className="absolute text-xs"
 									style={{
