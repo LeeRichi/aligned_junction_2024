@@ -1,6 +1,5 @@
 # Aligned
-
--------
+B2B Clients struggle to stay informed about software system updates and track their own feature requests. Aligned solves this with a centralized platform that delivers real-time updates, customizable notifications, and easy access to each stage of development with AI support.
 
 ## Authors
 
