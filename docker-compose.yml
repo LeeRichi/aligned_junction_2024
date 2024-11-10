@@ -21,6 +21,17 @@ services:
     depends_on: 
       - postgres
 
+  llm:
+    build: 
+      context: ./llm
+      dockerfile: Dockerfile
+    container_name: aligned-llm
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - api
+
   frontend:
     build: 
       context: ./frontend
