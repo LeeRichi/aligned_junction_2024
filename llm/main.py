@@ -7,11 +7,17 @@ from transformers import AutoModel
 import re
 from langchain_ollama import OllamaEmbeddings
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Only necessary if using a .env file
+api_key = os.getenv("GROQ_API_KEY")
+
 # FastAPI app instance
 app = FastAPI()
 
 # Initialize Pinecone API
-pc = Pinecone(api_key='8bc6be74-a2e6-4a20-be99-6f700a4273b0')
+pc = Pinecone(api_key=api_key)
 
 # Pinecone index name and dimension
 index_name = "quickstart4"
