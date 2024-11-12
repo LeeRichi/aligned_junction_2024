@@ -66,7 +66,7 @@ class QueryRequest(BaseModel):
 #     # Generate embedding using the embedding model
 #     embedding = embedding_model.embed_query(chunk)
 #     embedding = list(embedding)  # Ensure embedding is in the correct format (list of floats)
-    
+
 #     # Upsert the embedding into Pinecone
 #     pc_index.upsert([(f"chunk-{i}", embedding, {"text": chunk})])
 
@@ -75,10 +75,10 @@ def query_pinecone(question):
     # Generate embedding for the query
     question_embedding = embedding_model.embed_query(question)
     question_embedding = list(question_embedding)  # Ensure it's a list of floats
-    
+
     # Query Pinecone for the top 3 matches
     results = pc_index.query(vector=[question_embedding], top_k=3, include_metadata=True)
-    
+
     # Extract matched texts from the results
     return [match['metadata']['text'] for match in results['matches']]
 
