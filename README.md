@@ -20,5 +20,5 @@ docker compose up -d
 #### To see the result, check [http://localhost](http://localhost) in your browser. Make sure port 80 is free, otherwise change the exposed port of frontend application in docker compose.
 
 # LIVE DEMO
-1. [http://54.235.16.212](http://54.235.16.212) -> Frontend application
+1. [https://ubiquitous-muffin-d4b6e6.netlify.app/](https://ubiquitous-muffin-d4b6e6.netlify.app/) -> Frontend application
 2. [http://54.235.16.212:8080](http://54.235.16.212:8080) -> Backend application
