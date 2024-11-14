@@ -63,3 +63,34 @@ export const issues = [
     status: { start: "successful", update: "successful", finish: "unsuccessful" }
   },
 ];
+
+export const mockRequests = [
+	{
+		id: 1,
+		issue: 'Login not working',
+		type: 'Bug',
+		createdAt: '2024-11-01',
+		updatedAt: '2024-11-02',
+		status: 'Open',
+		action: 'View',
+	},
+	{
+		id: 2,
+		issue: 'Add feature X',
+		type: 'Feature',
+		createdAt: '2024-10-30',
+		updatedAt: '2024-11-01',
+		status: 'In Progress',
+		action: 'View',
+	},
+	// Add more sample requests here
+	{
+		id: 3,
+		issue: 'Update documentation',
+		type: 'Task',
+		createdAt: '2024-11-05',
+		updatedAt: '2024-11-06',
+		status: 'Closed',
+		action: 'View',
+	},
+];

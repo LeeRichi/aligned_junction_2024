@@ -26,7 +26,8 @@ const Sidebar = ({isOpen, setIsOpen}) => {
 				<h3 className="text-2xl mb-4">
 					Ailigned x <span className="text-red-500">FINGRID</span>
 				</h3>
-				<div className="flex items-center w-64 max-w-md bg-white rounded border-2 overflow-hidden">					<CiSearch className="text-gray-500 ml-2" />
+				<div className="flex items-center w-64 max-w-md bg-white rounded border-2 overflow-hidden">
+					<CiSearch className="text-gray-500 ml-2" />
 					<input
 						type="text"
 						placeholder="Search..."

@@ -23,7 +23,7 @@ export default function Home() {
 
       {/* Main Content Area */}
       <div
-        className={`flex-1 min-h-screen transition-all duration-300 border-2 ${
+        className={`flex-1 min-h-screen transition-all duration-300 ${
           isOpen ? "ml-[23%]" : "ml-0"
         }`}
       >

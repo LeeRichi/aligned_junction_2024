@@ -3,7 +3,7 @@ import { FaQuestionCircle, FaBell, FaUserCircle } from 'react-icons/fa'; // Impo
 
 const Navbar = () => {
   return (
-    <div className="flex border-2 w-full h-14 items-center justify-between px-4">
+    <div className="flex border-b-2 w-full h-14 items-center justify-between px-4">
       {/* Breadcrumbs / Page Path */}
       <div className="text-lg">
         Home / Tracker / Releases
