@@ -11,7 +11,6 @@ const Layout = ({ children }) => {
     <html lang="en">
       <body>
         <div className="flex">
-          {/* <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} /> */}
           <main className="flex-1">{children}</main>
         </div>
       </body>
