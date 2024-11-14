@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import { CiSearch } from "react-icons/ci";
 
 import { TiFlowParallel } from "react-icons/ti";
@@ -10,12 +9,12 @@ import { IoNotifications } from "react-icons/io5";
 import { TiHeartOutline } from "react-icons/ti";
 import { PiSignOutBold } from "react-icons/pi";
 
-const Sidebar = ({isOpen, setIsOpen}) => {
+const Sidebar = ({isOpen}) => {
 	const [query, setQuery] = useState("");
 
-  const toggleSidebar = () => {
-    // setIsOpen(!isOpen);
-  };
+  // const toggleSidebar = () => {
+  //   // setIsOpen(!isOpen);
+  // };
 
   return (
     <div className="relative">

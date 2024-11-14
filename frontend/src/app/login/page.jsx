@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import photo from "@/assets/photo.png";
-import photo_company from "@/assets/photo_company.png";
+// import photo_company from "@/assets/photo_company.png";
 
 export default function LoginPage() {
   const [isCompanyLogin, setIsCompanyLogin] = useState(false);

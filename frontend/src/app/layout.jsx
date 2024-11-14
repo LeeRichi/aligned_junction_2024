@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
-import Sidebar from '../components/sidebar/Sidebar';
+// import Sidebar from '../components/sidebar/Sidebar';
 import './globals.css';
 
 const Layout = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  // const [isOpen, setIsOpen] = useState(true);
 
   return (
     <html lang="en">

@@ -10,11 +10,12 @@ import { IoIosWarning } from "react-icons/io";
 import { FaCheck } from "react-icons/fa6";
 import Requests from "../requests/Requests";
 
-const Tracker = ({ isOpen, issues }) =>
+const Tracker = ({ issues }) =>
 {
 	const [backendIssuesIds, setBackendIssuesIds] = useState([])
-	const [firstIssue, setFirstIssue] = useState({})
+	// const [firstIssue, setFirstIssue] = useState({})
 	const [releaseDetails, setReleaseDetails] = useState(null); // State to hold the release details
+	console.log(releaseDetails)
 	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 	const today = new Date();
@@ -47,7 +48,7 @@ const Tracker = ({ isOpen, issues }) =>
 	{
 		if (timelineRef.current)
 		{
-			const timelineWidth = timelineRef.current.scrollWidth;
+			// const timelineWidth = timelineRef.current.scrollWidth;
 			const viewportWidth = timelineRef.current.clientWidth;
 			const initialScroll = todayPosition - viewportWidth / 2;
 
@@ -93,10 +94,10 @@ const Tracker = ({ isOpen, issues }) =>
 		}
 	};
 
-	const handleIssueClick = (id) =>
-	{
-		fetchReleaseDetails(id); // Fetch release details on click
-	};
+	// const handleIssueClick = (id) =>
+	// {
+	// 	fetchReleaseDetails(id); // Fetch release details on click
+	// };
 	// console.log(backendIssuesIds)
 	// console.log(backendIssuesIds[0])
 	// console.log(JSON.stringify(backendIssuesIds, null, 2));
@@ -117,14 +118,15 @@ const Tracker = ({ isOpen, issues }) =>
 		{ name: "December", days: 31 },
 	];
 
-	const handleSearch = () =>
-	{
-		if (onSearch)
-		{
-			onSearch(query);
-		}
-	};
-	const router = useRouter()
+	// const handleSearch = () =>
+	// {
+	// 	if (onSearch)
+	// 	{
+	// 		onSearch(query);
+	// 	}
+	// };
+
+	// const router = useRouter()
 
 	const handleIssueDetailClick = (issue) =>
 	{
